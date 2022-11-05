@@ -1,0 +1,15 @@
+.navbarContainer {
+  position: fixed;
+  width: 100%;
+  height: fit-content;
+  left: 0;
+  top: 0;
+  padding: 12px 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 10;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
