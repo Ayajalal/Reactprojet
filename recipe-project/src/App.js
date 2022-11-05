@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useEffect, useState } from "react";
+import SearchRecipe from "./Componant/search-recipe";
+import Navbar from "./Componant/Navbar";
+import Header from "./Componant/Header";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import Register from "./Componant/Register";
+import Login from "./Componant/Login";
 
 function App() {
+  const [loggedUser, setLoggedUser] = useState(null);
+
+  useEffect(() => {}, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Navbar />
+      {loggedUser ? (
+        <>
+          <Carousel infiniteLoop showStatus={false} autoPlay interval={5000}>
+            <Header imageUrl="/assets/images/recipes-header-bg.jpg" />
+            <Header imageUrl="/assets/images/recipes-header-bg1.jpg" />
+            <Header imageUrl="/assets/images/recipes-header-bg2.jpg" />
+          </Carousel>
+
+          <SearchRecipe />
+        </>
+      ) : (
+        <>
+          <Register />
+          <Login />
+        </>
+      )}
+    </React.Fragment>
   );
 }
 
