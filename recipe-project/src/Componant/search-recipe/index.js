@@ -2,36 +2,68 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import RecipeCard from "./card-recipe";
 import style from "./style.module.css";
-const searchApi = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { width } from "@mui/system";
+const searchApi = "https://forkify-api.herokuapp.com/api/search?q=";
 
 function SearchRecipe() {
   const [load, setLoad] = useState(false); //fetch data or not
-  const [query, setQuery] = useState(""); //the input of url
+  const [query, setQuery] = useState("pizza"); //the input of url
   const [recipes, setRecipes] = useState([]); //fetch recipe that i wanna store them
   //function to search for recipe
   const searchRecipes = async () => {
     setLoad(true);
     const url = searchApi + query;
-    const res = await Axios.get(url);
-    const data = await res.data.meals;
-    // console.log("data" + data);
+    const res = await Axios.get(url); //asycn
+    const data = res.data.recipes;
+
+    console.log(data);
     setRecipes(data);
-    console.log(JSON.stringify(data) + "hello");
+    // console.log(recipes);
     setLoad(false);
   };
   useEffect(() => {
     searchRecipes();
+    // console.log(recipes + "kkk");
   }, []);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    searchRecipes();
+  };
   return (
-    <div className="wrapper">
-      <h2>Our Recipe </h2>
-      <div className={style.recipes}>
-        {recipes
-          ? recipes.map((recipe) => (
-              <RecipeCard recipe={recipe} key={recipe.idMeal} />
-            ))
-          : "no Recipe"}
-      </div>
+    <div className={style.wrapper}>
+      {/* const {recipes}=recipes; */}
+      <Box sx={{ flexGrow: 1 }}>
+        <h2>Our Recipe </h2>
+        <TextField
+          id="outlined-basic"
+          defaultValue={query}
+          variant="filled"
+          onChange={(e) => setQuery(e.target.value)}
+          sx={{ marginBottom: "20px", marginRight: 10 }}
+        />
+        <Button
+          size="large"
+          variant="contained"
+          color="primary"
+          sx={{ height: 53 }}
+          onClick={onSubmit}
+        >
+          Search
+        </Button>
+        <Grid container spacing={{ xs: 2, md: 3 }}>
+          {recipes
+            ? recipes.map((recipe, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  <RecipeCard recipe={recipe} key={recipe.recipe_id} />
+                </Grid>
+              ))
+            : "no Recipe"}
+        </Grid>{" "}
+      </Box>
     </div>
   );
 }
