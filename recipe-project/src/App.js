@@ -15,7 +15,8 @@ function App() {
 
   return (
     <React.Fragment>
-      <Navbar />
+      <SearchRecipe />
+      {/* <Navbar />
       {loggedUser ? (
         <>
           <Carousel infiniteLoop showStatus={false} autoPlay interval={5000}>
@@ -31,7 +32,7 @@ function App() {
           <Register />
           <Login />
         </>
-      )}
+      )} */}
     </React.Fragment>
   );
 }
