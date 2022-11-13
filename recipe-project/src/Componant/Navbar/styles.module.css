@@ -13,3 +13,28 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.navbarButtons {
+  all: unset;
+  display: flex;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.navbarButtons a {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbarContent {
+  display: flex;
+  gap: 10px;
+}
+
+.navbarContent a {
+  all: unset;
+  color: rgb(62, 174, 118);
+  text-transform: capitalize;
+  cursor: pointer;
+}
