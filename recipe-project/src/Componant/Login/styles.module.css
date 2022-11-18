@@ -1,0 +1,118 @@
+.loginWrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/public/assets/images/recipes-header-bg1.jpg");
+  overflow-y: auto;
+}
+
+.loginContainer {
+  width: 60%;
+  height: 80vh;
+  display: flex;
+  padding: 20px;
+  box-shadow: 1px 1px 5px 1px rgba(75, 82, 75, 0.5);
+  background-color: white;
+}
+
+.loginContainer > div {
+  width: 50%;
+  height: 100%;
+}
+
+.loginImg {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.loginForm {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  /* height: "100vh"; */
+}
+
+.loginForm h2 {
+  position: absolute;
+  top: 20px;
+  font-size: 2rem;
+  color: rgb(162, 72, 1);
+  text-shadow: 2px 2px 3px rgb(0, 0, 0);
+}
+
+.loginForm button {
+  color: rgb(162, 72, 1);
+  width: 60%;
+  border-color: rgb(162, 72, 1);
+}
+
+.loginForm button:hover {
+  /* color: #3eae76; */
+  border-color: rgb(162, 72, 1);
+}
+
+.loginInput {
+  width: 80%;
+}
+
+.loginInput label {
+  color: rgb(162, 72, 1);
+}
+
+.loginInput > div::before {
+  border-bottom: 1px solid rgba(162, 72, 1, 0.42);
+}
+
+.loginInput > div:hover ::before {
+  border-bottom: 1px solid rgba(162, 72, 1, 0.8);
+}
+
+@media (max-width: 1250px) {
+  .loginContainer {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .loginContainer {
+    width: 80%;
+  }
+}
+
+@media (max-width: 950px) {
+  .loginContainer {
+    width: 90%;
+  }
+}
+
+@media (max-width: 850px) {
+  .loginWrapper {
+    min-height: 80vh;
+  }
+  .loginContainer {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .loginContainer > div {
+    width: 100%;
+  }
+  .loginImg {
+    width: 100%;
+    order: 1;
+  }
+  .loginForm {
+    width: 100%;
+    order: 2;
+  }
+  .loginForm h2 {
+    position: relative;
+  }
+}

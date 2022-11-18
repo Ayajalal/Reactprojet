@@ -1,5 +1,5 @@
 .navbarContainer {
-  position: fixed;
+  position: relative;
   width: 100%;
   height: fit-content;
   left: 0;

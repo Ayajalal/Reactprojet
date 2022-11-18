@@ -1,11 +1,20 @@
+.registerWrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/public/assets/images/recipes-header-bg.jpg");
+  overflow-y: auto;
+}
+
 .registerContainer {
   width: 60%;
   height: 80vh;
-  margin: 8rem auto;
   display: flex;
-  /* border: 1px solid black; */
   padding: 20px;
   box-shadow: 1px 1px 5px 1px rgba(75, 82, 75, 0.5);
+  background-color: white;
 }
 
 .registerContainer > div {
@@ -90,6 +99,9 @@
     min-height: 100vh;
   }
   .registerContainer > div {
+    width: 100%;
+  }
+  .registerImg {
     width: 100%;
   }
   .registerForm {

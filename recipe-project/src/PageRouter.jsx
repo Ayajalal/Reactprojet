@@ -5,9 +5,10 @@ import Login from "./Componant/Login";
 import Register from "./Componant/Register";
 import Homepage from "./pages/Homepage";
 import NotFound from "./pages/NotFound";
+import cookie from "react-cookies";
 
 const PageRouter = () => {
-  const [loggedUser, setLoggedUser] = useState(null);
+  const [loggedUser, setLoggedUser] = useState(cookie.load("user"));
 
   useEffect(() => {}, []);
 
@@ -25,7 +26,11 @@ const PageRouter = () => {
           </>
         ) : (
           <>
-            <Route index element={<Login />} />
+            <Route index element={<Login setLoggedUser={setLoggedUser} />} />
+            <Route
+              path="login"
+              element={<Login setLoggedUser={setLoggedUser} />}
+            />
             <Route path="register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
           </>
