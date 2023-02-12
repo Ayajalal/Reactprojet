@@ -6,6 +6,8 @@
   align-items: center;
   background-image: url("/public/assets/images/recipes-header-bg.jpg");
   overflow-y: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .registerContainer {
@@ -36,16 +38,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
+  gap: 10px;
   /* height: "100vh"; */
 }
 
 .registerForm h2 {
   position: absolute;
-  top: 20px;
+  top: 10px;
   font-size: 2rem;
   color: rgb(70, 155, 72);
-  text-shadow: 2px 2px 3px rgb(0, 0, 0);
+  /* text-shadow: 2px 2px 3px rgb(0, 0, 0); */
 }
 
 .registerForm button {
@@ -75,9 +77,17 @@
   border-bottom: 1px solid rgba(70, 155, 72, 0.8);
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1500px) {
   .registerContainer {
     width: 70%;
+    min-height: 70vh;
+  }
+}
+
+@media (max-width: 1250px) {
+  .registerContainer {
+    width: 75%;
+    min-height: 60vh;
   }
 }
 
@@ -90,13 +100,23 @@
 @media (max-width: 950px) {
   .registerContainer {
     width: 90%;
+    min-height: 55vh;
   }
 }
 
 @media (max-width: 850px) {
+  .registerWrapper {
+    background-image: url("/public/assets/images/register.jpg");
+  }
+
+  .registerImg {
+    display: none;
+  }
   .registerContainer {
     flex-direction: column;
-    min-height: 100vh;
+    height: 60vh;
+    min-height: 60vh;
+    width: 65%;
   }
   .registerContainer > div {
     width: 100%;
@@ -110,4 +130,29 @@
   .registerForm h2 {
     position: relative;
   }
+}
+
+
+@media (max-width: 600px) {
+  
+  .registerContainer {
+    width: 85%;
+    min-height: 65vh;
+  }
+}
+
+@media (max-width: 380px) {
+  
+  .registerContainer {
+    min-height: 80vh;
+  }
+
+}
+
+@media (max-width: 330px) {
+  
+  .registerContainer {
+    min-height: 100vh;
+  }
+
 }

@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
-import { Backdrop, Button, CircularProgress } from "@mui/material";
+import { Backdrop, Button, CircularProgress, TextField } from "@mui/material";
 // End of Material-UI
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -86,24 +86,28 @@ const Login = ({ setLoggedUser }) => {
           autoComplete="off"
         >
           <h2>Login Form</h2>
-          <FormControl variant="standard" className={styles.loginInput}>
-            <InputLabel htmlFor="email">Email</InputLabel>
-            <Input
-              id="email"
-              value={inputFields.email}
-              onChange={(e) => handleChange(e, "email")}
-              required={true}
-            />
-          </FormControl>
-          <FormControl variant="standard" className={styles.loginInput}>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input
-              id="password"
-              value={inputFields.password}
-              onChange={(e) => handleChange(e, "password")}
-              required={true}
-            />
-          </FormControl>
+          <TextField
+            key="email"
+            className={styles.loginInput}
+            id="email"
+            variant="standard"
+            label="Email"
+            value={inputFields.email}
+            onChange={(e) => handleChange(e, "email")}
+            required={true}
+            type="email"
+          />
+          <TextField
+            key="password"
+            className={styles.loginInput}
+            id="password"
+            variant="standard"
+            label="Password"
+            value={inputFields.password}
+            onChange={(e) => handleChange(e, "password")}
+            required={true}
+            type="password"
+          />
           <Button
             variant="outlined"
             onClick={(event) => {

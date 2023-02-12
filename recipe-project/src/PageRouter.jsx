@@ -19,7 +19,7 @@ const PageRouter = () => {
           <Layout loggedUser={loggedUser} setLoggedUser={setLoggedUser} />
         }
       >
-        {loggedUser ? (
+        {!loggedUser ? (
           <>
             <Route index element={<Homepage />} />
             <Route path="*" element={<NotFound />} />

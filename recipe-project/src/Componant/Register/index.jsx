@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
-import { Backdrop, Button, CircularProgress } from "@mui/material";
+import { Backdrop, Button, CircularProgress, TextField } from "@mui/material";
 // End of Material-UI
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -18,6 +18,7 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
+    passwordConfirm: "",
   });
   const navigate = useNavigate();
 
@@ -90,33 +91,50 @@ const Register = () => {
           autoComplete="off"
         >
           <h2>Register Form</h2>
-          <FormControl variant="standard" className={styles.registerInput}>
-            <InputLabel htmlFor="username">Name</InputLabel>
-            <Input
-              id="username"
-              value={inputFields.name}
-              onChange={(e) => handleChange(e, "name")}
-              required={true}
-            />
-          </FormControl>
-          <FormControl variant="standard" className={styles.registerInput}>
-            <InputLabel htmlFor="email">Email</InputLabel>
-            <Input
-              id="email"
-              value={inputFields.email}
-              onChange={(e) => handleChange(e, "email")}
-              required={true}
-            />
-          </FormControl>
-          <FormControl variant="standard" className={styles.registerInput}>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input
-              id="password"
-              value={inputFields.password}
-              onChange={(e) => handleChange(e, "password")}
-              required={true}
-            />
-          </FormControl>
+          <TextField
+            key="name"
+            className={styles.registerInput}
+            id="name"
+            variant="standard"
+            label="Name"
+            value={inputFields.name}
+            onChange={(e) => handleChange(e, "name")}
+            required={true}
+            type="text"
+          />
+          <TextField
+            key="email"
+            className={styles.registerInput}
+            id="email"
+            variant="standard"
+            label="Email"
+            value={inputFields.email}
+            onChange={(e) => handleChange(e, "email")}
+            required={true}
+            type="email"
+          />
+          <TextField
+            key="password"
+            className={styles.registerInput}
+            id="password"
+            variant="standard"
+            label="Password"
+            value={inputFields.password}
+            onChange={(e) => handleChange(e, "password")}
+            required={true}
+            type="password"
+          />
+          <TextField
+            key="passwordConfirm"
+            className={styles.registerInput}
+            id="passwordConfirm"
+            variant="standard"
+            label="Confirm Password"
+            value={inputFields.passwordConfirm}
+            onChange={(e) => handleChange(e, "passwordConfirm")}
+            required={true}
+            type="password"
+          />
           <Button
             variant="outlined"
             onClick={(event) => {
